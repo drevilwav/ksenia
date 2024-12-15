@@ -13,30 +13,30 @@ body {
   background: #ffe6f2 url("https://via.placeholder.com/1920x1080?text=Фон") no-repeat center center fixed;
   background-size: cover;
   color: #333;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
-  overflow: hidden; /* Отключает прокрутку */
+  overflow: hidden; /* Отключаем прокрутку */
 }
 
-/* Хедер и навигация */
+/* Задаём фиксированную высоту хедера */
 header {
   background: rgba(255, 255, 255, 0.8);
-  padding: 20px 0;
+  padding: 10px 0;
+  height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .nav-btn {
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   background: #ff99cc;
   border-radius: 8px;
   color: #fff;
@@ -48,50 +48,54 @@ header nav {
   background: #ff66b3;
 }
 
-/* Основная часть */
+/* Основная часть: занимаем высоту экрана за вычетом хедера */
 main {
   width: 100vw;
-  height: 100vh; /* Занимаем всю высоту окна */
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffe6f2; /* Пример фона */
+  background: #ffe6f2;
 }
 
 /* Приветственный блок */
 .hello-section {
-  width: 700px;
-  height: 600px;
+  width: 90vw;
+  max-width: 700px;
+  /* Нет жесткого height, только max-height */
+  max-height: 80vh; 
+  min-height: 80vh; 
   background: rgba(255,255,255,0.7);
   border-radius: 15px;
   padding: 20px;
   text-align: center;
   position: relative;
-  /* Убираем смещение по вертикали для ровного центрирования */
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .hello-section img {
-  width: 350px;
-  height: 350px;
+  max-width: 80%;
+  max-height: 50vh;
   border-radius: 5%;
   object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .hello-section p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.4;
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .main-btn {
@@ -99,7 +103,7 @@ main {
   background: #ff99cc;
   color: #fff;
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 8px;
   transition: background 0.3s ease;
 }
@@ -110,9 +114,10 @@ main {
 
 /* Слайдер */
 .slider-section {
-  width: 700px;
-  height: 600px;
-  position: relative;
+  width: 90vw;
+  max-width: 700px;
+  max-height: 80vh; 
+  min-height: 80vh; 
   background: rgba(255,255,255,0.7);
   padding: 20px;
   border-radius: 15px;
@@ -121,6 +126,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .slider-container {
@@ -129,12 +135,15 @@ main {
   overflow: hidden;
   border-radius: 15px;
   display: flex;
-  align-items: center;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .slider-track {
   display: flex;
   transition: transform 0.4s ease;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .slide {
@@ -146,25 +155,21 @@ main {
 }
 
 .slide img {
-  width: 400px;
-  height: 400px;
+  max-width: 80%;
+  max-height: 50vh;
   border-radius: 15px;
   object-fit: cover;
 }
 
 .caption {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
   text-align: center;
 }
 
-/* Кнопки управления слайдером по центру внизу */
+/* Кнопки слайдера */
 .slider-btn-container {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 10px;
 }
@@ -181,13 +186,9 @@ main {
   opacity: 0.7;
 }
 
-/* Делаем стрелки чёрными */
-.slider-btn svg rect {
-  stroke: #000;
-}
-
+.slider-btn svg rect,
 .slider-btn svg path {
-  stroke: #000;
+  stroke: #000; /* Чёрные стрелки */
 }
 
 /* Заголовки */
