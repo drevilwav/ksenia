@@ -1,0 +1,29 @@
+html,
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; 
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+.hello-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
